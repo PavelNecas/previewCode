@@ -1,0 +1,9 @@
+{% extends 'areas/areaLayout.html.twig' %}
+
+{% block areaContent %}
+
+<div class="wysiwyg-content{% if additionalStyle is defined and additionalStyle %}{{ ' ' ~ additionalStyle}}{% endif %}">
+	{{ pimcore_wysiwyg('wysiwyg', {'placeholder': 'Place your content here'})|typo }}
+</div>
+
+{% endblock %}

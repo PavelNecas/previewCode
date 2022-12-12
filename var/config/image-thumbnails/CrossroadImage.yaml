@@ -1,0 +1,28 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    CrossroadImage:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 650
+                                    height: 500
+                                    positioning: center
+                                    forceResize: true
+                        medias: {  }
+                        name: CrossroadImage
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1670062742
+                        creationDate: 1670061564
+                        preserveAnimation: false

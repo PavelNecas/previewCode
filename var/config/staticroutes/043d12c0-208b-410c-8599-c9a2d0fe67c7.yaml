@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            043d12c0-208b-410c-8599-c9a2d0fe67c7:
+                name: article-en
+                pattern: '#/en/articles/(.*)#'
+                reverse: /en/articles/%slug
+                controller: 'App\Controller\DefaultController::articleDetailAction'
+                variables: slug
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1667986824
+                modificationDate: 1667995341

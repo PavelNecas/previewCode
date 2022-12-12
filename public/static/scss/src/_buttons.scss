@@ -1,0 +1,26 @@
+.btn {
+  border: 0.15rem solid $primary;
+  text-transform: uppercase;
+  color: $primary;
+  font-weight: 600;
+  border-radius: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+  }
+
+  &-secondary {
+    background: $primary;
+    color: $white;
+
+
+    &:hover {
+      background: $white;
+      color: $primary;
+      border: 0.15rem solid $primary;
+    }
+  }
+}

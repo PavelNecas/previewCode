@@ -1,0 +1,15 @@
+pimcore:
+    properties:
+        predefined:
+            definitions:
+                014bc6ea-c9a1-4873-8239-ec3e353b60c1:
+                    name: 'Visible in menu'
+                    description: 'options for menu rendering'
+                    key: visibleInMenu
+                    type: bool
+                    data: 'true'
+                    config: ''
+                    ctype: document
+                    inheritable: false
+                    creationDate: 1669801734
+                    modificationDate: 1669801870

@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            739d16b3-b167-475d-b757-f7ae9dddc073:
+                name: news-en
+                pattern: '#/en/news/(.*)#'
+                reverse: /en/news/%slug
+                controller: 'App\Controller\DefaultController::newsDetailAction'
+                variables: slug
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1667986460
+                modificationDate: 1667995328

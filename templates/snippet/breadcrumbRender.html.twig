@@ -1,0 +1,31 @@
+{% if pages is not empty %}
+	<div class="breadcrumb-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+						{% for key, page in pages %}
+							{% if key < (pages|length - 1) %}
+								<li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<a class="breadcrumb__link" itemprop="item" href="{{ page.getUri() }}" title="{{ page.getLabel() }}" target="_self">
+										<span itemprop="name">
+											{{ page.getLabel() }}
+										</span>
+										<meta itemprop="position" content="{{ key + 1 }}">
+									</a>
+								</li>
+							{% else %}
+								<li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<span itemprop="name">
+										{{ page.getLabel() }}
+									</span>
+									<meta itemprop="position" content="{{ key + 1 }}">
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

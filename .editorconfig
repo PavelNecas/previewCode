@@ -1,0 +1,24 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+
+[{*.php,*.md,*.tmpl,.php_cs}]
+indent_style = tab
+
+[{*.css,*.scss,.*js,*.json}]
+indent_style = space
+indent_size = 2
+
+[{*.php,*.css,*.scss,.*js,*.json,*.md,*.tmpl,.php_cs}]
+trim_trailing_whitespace = true
+
+[{*.php,.php_cs}]
+insert_final_newline = true
+
+[pimcore/**]
+insert_final_newline = false
+indent_style = space
+indent_size = 4
+

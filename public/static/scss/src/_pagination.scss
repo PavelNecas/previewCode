@@ -1,0 +1,41 @@
+.pagination {
+  position: relative;
+  justify-content: center;
+
+  .page-item {
+
+    .page-link {
+      border-radius: unset;
+      border-color: $primary;
+      color: $primary;
+      height: 38px;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      text-align: center;
+
+      &:hover {
+        background: $primary;
+        color: $white;
+      }
+
+      &:focus {
+        box-shadow: unset;
+      }
+
+      &:not(.prev, .next) {
+        width: 38px;
+      }
+    }
+
+    &.active {
+      .page-link {
+        background: $primary;
+        color: $white;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

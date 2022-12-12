@@ -1,0 +1,13 @@
+{% if section is defined and section %}
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+{% endif %}
+					{{ block('areaContent') }}
+{% if section is defined and section %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

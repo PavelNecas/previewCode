@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<main class="content">
+		<section>
+			<div class="container">
+				<div class="row">
+					{% if editmode or not pimcore_input('articleHeader').isEmpty() %}
+						<div class="col-12">
+							<h1>{{ pimcore_input('articleHeader', {'placeholder': 'Optional article title'}) }}</h1>
+						</div>
+					{% endif %}
+					<div class="article-list">
+						<div class="row">
+							{% for article in articles %}
+								{% set url = article.getUrl() %}
+								<div class="col-md-6 col-xl-4 mb-4">
+									<div class="article-item">
+										{% set image = article.getPreviewImage() %}
+										{% if image %}
+											<div class="img">
+												<a href="{{ url }}">
+													{{ image.thumbnail('ArticlePreviewImage').html|raw }}
+												</a>
+											</div>
+										{% endif %}
+										<div class="text">
+											<h2>
+												<a href="{{ url }}">{{ article.getName() }}</a>
+											</h2>
+											<p class="article-date">{{ article.getCreatedOn()|date("j.n.Y") }}</p>
+											<p>{{ article.getDescription() }}</p>
+										</div>
+										<div class="article-button">
+											<a href="{{ url }}" class="btn">{{ 'Přečíst článek'|trans }}</a>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="col-12 mt-4">
+						{% include 'snippet/pagination.html.twig' %}
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+{% endblock %}

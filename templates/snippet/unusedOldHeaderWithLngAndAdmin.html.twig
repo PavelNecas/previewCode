@@ -1,0 +1,26 @@
+<header class="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="navigation">
+					<div class="navigation__main">
+						<a href="{{ doc_url(2) }}" class="navigation__main-link mx-1">{{ 'Home'|trans }}</a>
+						<a href="{{ doc_url(16) }}" class="navigation__main-link mx-1">{{ 'Články'|trans }}</a>
+						<a href="{{ doc_url(17) }}" class="navigation__main-link mx-1">{{ 'Novinky'|trans }}</a>
+					</div>
+					<div class="lng">
+						{% include('snippet/languageSwitcher.html.twig') %}
+					</div>
+					<div class="navigation__secondary">
+						{% if logged is defined and logged %}
+							<a href="{{ doc_url(7) }}">{{ userName }}</a>
+							<a href="/logout" class="btn btn-outline-secondary">{{ 'Odhlásit'|trans }}</a>
+						{% else %}
+							<a href="{{ doc_url(4) }}" class="btn btn-outline-secondary">{{ 'Přihlásit'|trans }}</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

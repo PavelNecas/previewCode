@@ -1,0 +1,29 @@
+{% set form = registrationForm %}
+{% form_theme form 'form/themes/default.html.twig' %}
+
+{{ form_start(form, {
+	'attr': {
+		'novalidate': true,
+		'class': 'base',
+	},
+}) }}
+
+{{ form_row(form['email']) }}
+{{ form_row(form['password']) }}
+
+{{ form_widget(form['submit'], {
+	'attr': {
+		'class': 'btn btn-secondary',
+	},
+}) }}
+
+{{ form_end(form) }}
+
+{% if editmode or pimcore_textarea('registrationFormNotice') is not empty %}
+<div class="form-notice">
+	<p>{{ pimcore_textarea('registrationFormNotice', {
+			'width' : '430',
+			'htmlspecialchars' : false
+		})|raw }}</p>
+</div>
+{% endif %}

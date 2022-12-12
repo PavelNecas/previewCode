@@ -1,0 +1,25 @@
+{# templates/Google/TagManager/codeHead.html.twig.html.twig #}
+{% extends "@PimcoreCore/Google/TagManager/codeHead.html.twig" %}
+
+{% block beforeScriptTag %}
+	<!-- GTM consent -->
+	<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'personalization_storage': 'denied',
+            'wait_for_update': 500
+        });
+	</script>
+	{{ parent() }}
+{% endblock %}
+
+{% block code %}
+	{{ parent() }}
+{% endblock %}
+
+{% block afterScriptTag %}
+	{{ parent() }}
+{% endblock %}

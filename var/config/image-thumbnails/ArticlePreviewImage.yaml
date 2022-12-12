@@ -1,0 +1,28 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    ArticlePreviewImage:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 450
+                                    height: 300
+                                    positioning: center
+                                    forceResize: false
+                        medias: {  }
+                        name: ArticlePreviewImage
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1670099790
+                        creationDate: 1670099733
+                        preserveAnimation: false

@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<main class="content">
+
+	{{ pimcore_areablock("indexAreablock", {
+		'allowed': [
+			'moto',
+			'wysiwyg',
+			'crossroad-blocks'
+		],
+		'params': {
+			'moto': {
+				'section': true,
+				'additionalStyle': 'moto-index'
+			},
+			'wysiwyg': {
+				'section': true,
+			},
+			'crossroad-blocks': {
+				'section': true,
+			}
+		}})
+	}}
+
+</main>
+
+{% endblock %}

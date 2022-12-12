@@ -1,0 +1,9 @@
+{% extends 'areas/areaLayout.html.twig' %}
+
+{% block areaContent %}
+
+<div class="moto{% if additionalStyle is defined and additionalStyle %}{{ ' ' ~ additionalStyle}}{% endif %} ">
+	{{ pimcore_input('moto', {'placeholder': 'Place your moto here'})|typo }}
+</div>
+
+{% endblock %}

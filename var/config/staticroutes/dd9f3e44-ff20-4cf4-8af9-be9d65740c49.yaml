@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            dd9f3e44-ff20-4cf4-8af9-be9d65740c49:
+                name: article-cs
+                pattern: '#/cs/clanky/(.*)#'
+                reverse: /cs/clanky/%slug
+                controller: 'App\Controller\DefaultController::articleDetailAction'
+                variables: slug
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1667920315
+                modificationDate: 1667922115

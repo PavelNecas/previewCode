@@ -1,0 +1,41 @@
+{# templates/Analytics/Tracking/Google/Analytics/gtagTrackingCode.html.twig.html.twig #}
+{% extends "@PimcoreCore/Analytics/Tracking/Google/Analytics/gtagTrackingCode.html.twig" %}
+
+{% block beforeScriptTag %}
+	<!-- Google Analytics -->
+	{{ parent() }}
+{% endblock %}
+
+{% block beforeInit %}
+	{{ parent() }}
+{% endblock %}
+
+{% block beforeTrack %}
+	gtag('consent', 'default', {
+	'ad_storage': 'denied',
+	'analytics_storage': 'denied',
+	'personalization_storage': 'denied',
+	'wait_for_update': 500
+	});
+	{{ parent() }}
+{% endblock %}
+
+{% block track %}
+	{% if gtagConfig is defined %}
+		{{ parent() }}
+	{% else %}
+		gtag('config', '{{ trackId }}', { 'anonymize_ip': true });
+	{% endif %}
+{% endblock %}
+
+{% block afterTrack %}
+	{{ parent() }}
+{% endblock %}
+
+{% block afterScript %}
+	{{ parent() }}
+{% endblock %}
+
+{% block afterScriptTag %}
+	{{ parent() }}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<main class="content">
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-xl-4 offset-lg-3 offset-xl-4">
+						{{ include('form/login.html.twig') }}
+						<div class="link">
+							{% if editmode or not pimcore_link('forgottenPassword').isEmpty() %}
+								{{ pimcore_link('forgottenPassword') }}
+							{% endif %}
+						</div>
+						<div class="link">
+							{% if editmode or not pimcore_link('newUser').isEmpty() %}
+								{{ pimcore_link('newUser') }}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            2be4c85b-f676-437a-bc8e-f8ef915807c0:
+                name: account-activation
+                pattern: '#/(cs)/account-activation/([a-z0-9]+)#'
+                reverse: /%%language/account-activation/%%code
+                controller: 'App\Controller\UserController::accountActivationAction'
+                variables: 'language,code'
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1654175891
+                modificationDate: 1654183611

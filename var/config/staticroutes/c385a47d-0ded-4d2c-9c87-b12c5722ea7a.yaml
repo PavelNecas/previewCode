@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            c385a47d-0ded-4d2c-9c87-b12c5722ea7a:
+                name: news-cs
+                pattern: '#/cs/udalosti/(.*)#'
+                reverse: /cs/udalosti/%slug
+                controller: 'App\Controller\DefaultController::newsDetailAction'
+                variables: slug
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1667979958
+                modificationDate: 1669733338

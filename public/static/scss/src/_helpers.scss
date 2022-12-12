@@ -1,0 +1,9 @@
+@mixin breakpoint($value) {
+  @if map-has-key($grid-breakpoints, $value) {
+    @media (max-width: #{map-get($grid-breakpoints, $value) - 1px}) {
+      @content;
+    }
+  } @else {
+    @warn "Breikpoint `#{$value}`doesn't exists.";
+  }
+}

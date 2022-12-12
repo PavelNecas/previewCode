@@ -1,0 +1,11 @@
+{% if (translations is not defined or not translations) and document is instanceof('\\Pimcore\\Model\\Document\\Page') %}
+	{% set translations = get_doc_translations(document) %}
+{% endif %}
+
+{% if translations is defined and translations %}
+	{% for translationLanguage, path in translations %}
+		{% if translationLanguage != language %}
+			<a href="{{ path }}">{{ translationLanguage }}</a>
+		{% endif %}
+	{% endfor %}
+{% endif %}

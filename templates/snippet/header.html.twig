@@ -1,0 +1,45 @@
+<header class="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+
+				{% set mainNavigation = build_navigation(get_doc_by_path('/' ~ language)) %}
+
+				<nav class="navbar navbar-expand-md">
+					<div class="navbar-brand">
+						<a href="{{ doc_url(2) }}">
+							<img src="/img/svg/logo.svg">
+						</a>
+						<div class="navbar-brand-text">
+{#							<div class="info">#}
+								<span class="top">{{ 'Pavla Nečasová, fotografující advokátka'|trans }}</span>
+								<span class="bottom">{{ 'Blog o právních otázkách v oblasti fotografie'|trans }}</span>
+{#							</div>#}
+
+						</div>
+					</div>
+
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-line"></span>
+						<span class="navbar-toggler-line"></span>
+						<span class="navbar-toggler-line"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNavDropdown">
+						<ul class="navbar-nav">
+							{% if mainNavigation.root is defined %}
+								<li class="nav-item{{ mainNavigation.root.getId() is same as(document.getId()) ? ' active' : '' }}">
+									<a class="nav-link" href="{{ mainNavigation.root.getHref() }}">{{ mainNavigation.root.getProperty('navigation_name') }}</a>
+								</li>
+							{% endif %}
+							{% for page in mainNavigation.pages %}
+								<li class="nav-item {{ page.getId() is same as(document.getId()) ? ' active' : '' }}">
+									<a class="nav-link" href="{{ page.getHref() }}">{{ page.getProperty('navigation_name') }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>

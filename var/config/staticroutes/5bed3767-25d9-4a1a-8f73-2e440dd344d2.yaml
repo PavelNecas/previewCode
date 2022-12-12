@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            5bed3767-25d9-4a1a-8f73-2e440dd344d2:
+                name: newsletter-unsubscribe
+                pattern: '#/newsletter/unsubscribe#'
+                reverse: /newsletter/unsubscribe
+                controller: 'App\Controller\NewsletterController::unsubscribeAction'
+                variables: ''
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1666780326
+                modificationDate: 1666780400

@@ -1,0 +1,57 @@
+@font-face {
+  font-family:"Sacramento";
+  src:url("fonts/Sacramento-Regular.ttf") format("truetype"),url("fonts/Sacramento-Regular.svg#Sacramento-Regular") format("svg"),url("fonts/Sacramento-Regular.eot?") format("eot"),url("fonts/Sacramento-Regular.woff") format("woff");
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:"Quicksand";
+  src:url("fonts/Quicksand-Regular.ttf") format("truetype");
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:"Quicksand";
+  src:url("fonts/Quicksand-SemiBold.ttf") format("truetype");
+  font-weight:600;
+  font-style:normal;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.8px;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  &.head {
+    margin-bottom: 2rem;
+
+    @include breakpoint(sm) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  @include breakpoint(sm) {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+}
+
+.divider-year {
+  color: $primary;
+
+  h2 {
+    font-weight: 600;
+  }
+}

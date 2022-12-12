@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            c29e89a6-d08a-4a01-8437-90678dd4988a:
+                name: password-reset
+                pattern: '#/(cs)/password-reset/([a-z0-9]+)#'
+                reverse: /%%language/password-reset/%%code
+                controller: 'App\Controller\UserController::passwordChangeAction'
+                variables: 'language,resetToken'
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1659277972
+                modificationDate: 1659282083

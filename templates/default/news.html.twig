@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<main class="content">
+		<section>
+			<div class="container">
+				<div class="row">
+					{% if editmode or not pimcore_input('newsHeader').isEmpty() %}
+						<div class="col-12">
+							<h1>{{ pimcore_input('newsHeader', {'placeholder': 'Optional news title'}) }}</h1>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</section>
+
+		{{ pimcore_areablock("indexAreablock", {
+			'allowed': [
+				'moto',
+				'wysiwyg',
+				'crossroad-blocks',
+				'year-divider'
+			],
+			'params': {
+				'moto': {
+					'section': true,
+					'additionalStyle': 'moto-index'
+				},
+				'wysiwyg': {
+					'section': true,
+				},
+				'crossroad-blocks': {
+					'section': true,
+				},
+				'year-divider': {
+					'section': true,
+				},
+			}})
+		}}
+	</main>
+
+{% endblock %}

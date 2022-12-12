@@ -1,0 +1,29 @@
+// boostrap overwrite
+.form-control {
+  border-radius: 0;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: unset;
+  }
+}
+
+form {
+  &.base {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+
+    .form-group {
+      margin-bottom: .5rem;
+    }
+
+    .btn {
+      justify-self: end;
+
+      &:visited, &:focus, &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}

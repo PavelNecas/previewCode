@@ -1,0 +1,26 @@
+section {
+  margin: 2rem 0;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    &:not(.btn, .page-link, .nav-link) {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+}
+
+.link {
+  a {
+    color: $secondary;
+    text-decoration: none;
+
+    &:hover {
+      color: $gray-700;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<nav aria-label="Pagination">
+	<ul class="pagination">
+		{% if(paginationVariables.previous is defined) %}
+			<li class="page-item prev">
+				<a class="page-link prev" href="{{ pimcore_url({'page': paginationVariables.previous}) }}" aria-label="Previous">
+					{{ 'Předchozí stránka'|trans }}
+				</a>
+			</li>
+		{% endif %}
+
+		{% for page in paginationVariables.pagesInRange %}
+			{% if(paginationVariables.current == page) %}
+				<li class="page-item active" aria-current="page">
+					<span class="page-link">
+					{{ page }}
+					</span>
+				</li>
+			{% else %}
+				<li class="page-item">
+					<a class="page-link" href="{{ pimcore_url({'page': page}) }}">{{ page }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		{% if(paginationVariables.next is defined) %}
+			<li class="page-item next">
+				<a class="page-link next" href="{{ pimcore_url({'page': paginationVariables.next}) }}" aria-label="Next">
+					{{ 'Následující stránka'|trans }}
+				</a>
+			</li>
+		{% endif %}
+	</ul>
+</nav>
+

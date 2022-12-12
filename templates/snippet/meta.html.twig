@@ -1,0 +1,21 @@
+{% set cache = pimcore_cache(metaCacheKey) %}
+{% if not isFrontendRequestByAdmin and not cache.start() %}
+	{% if document is instanceof('\\Pimcore\\Model\\Document\\Page') %}
+		{% do pimcore_head_title().setSeparator(document.getProperty('titleSeparator')) %}
+		{% if document.getTitle() is not empty %}
+			{% do pimcore_head_title().set(document.getTitle()) %}
+		{% endif %}
+		{% do pimcore_head_title().append(document.getProperty('titlePostfix')) %}
+		{% do pimcore_head_meta().setName('viewport', 'width=device-width,initial-scale=1') %}
+		{% do pimcore_head_meta().setHttpEquiv('Content-Type', 'text/html; charset=utf-8') %}
+		{% do pimcore_head_meta().setHttpEquiv('x-ua-compatible', 'ie=edge') %}
+		{% do pimcore_head_meta().setName('author', 'pavliknecas@gmail.com') %}
+		{% set metaDescription = pimcore_head_meta().getItem('name', 'description') %}
+		{% if metaDescription is empty %}
+			{% do pimcore_head_meta().setName('description', document.getDescription()) %}
+		{% endif %}
+		{{ pimcore_head_title() }}
+		{{ pimcore_head_meta() }}
+	{% endif %}
+{% do cache.end() %}
+{% endif  %}

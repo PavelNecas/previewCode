@@ -1,0 +1,56 @@
+.crossroad {
+  &-image {
+    width: 100%;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &-text {
+    height: 100%;
+    padding: 3rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .btn:not(form .btn) {
+      margin-top: 2rem;
+    }
+
+    @include breakpoint(xxl) {
+      padding: 2rem;
+    }
+
+    @include breakpoint(xl) {
+      padding: 2rem 0 2rem 2rem;
+    }
+
+    @include breakpoint(lg) {
+      padding: 2rem 0;
+    }
+  }
+
+  &-reversed {
+    .crossroad-text {
+      @include breakpoint(xl) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &-newsletter {
+    height: 100%;
+    background: $primary;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+    svg {
+      height: 200px;
+      width: 200px;
+    }
+  }
+}

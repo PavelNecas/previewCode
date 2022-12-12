@@ -1,0 +1,15 @@
+.moto {
+  font-family: "sacramento", sans-serif;
+
+  &-index {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    text-align: center;
+
+    @include breakpoint(md) {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+

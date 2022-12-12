@@ -1,0 +1,27 @@
+imports:
+    -
+        resource: local/
+pimcore:
+    models:
+        class_overrides:
+            Pimcore\Model\DataObject\News: App\Model\News
+            Pimcore\Model\DataObject\News\Listing: App\Model\News\Listing
+            Pimcore\Model\DataObject\User: App\Model\User
+            Pimcore\Model\DataObject\User\Listing: App\Model\User\Listing
+            Pimcore\Model\DataObject\Newsletter: App\Model\Newsletter
+            Pimcore\Model\DataObject\Newsletter\Listing: App\Model\Newsletter\Listing
+            Pimcore\Model\DataObject\Article: App\Model\Article
+            Pimcore\Model\DataObject\Article\Listing: App\Model\Article\Listing
+    documents:
+        newsletter:
+            defaultUrlPrefix: 'https://my-host.com'
+    email:
+        sender:
+            name: Change
+            email: demo@change.com
+        return:
+            name: ''
+            email: ''
+    newsletter:
+        use_specific: false
+framework: null

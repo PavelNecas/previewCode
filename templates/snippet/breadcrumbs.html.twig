@@ -1,0 +1,28 @@
+{% set cache = pimcore_cache(breadcrumbsCacheKey) %}
+{% if not isFrontendRequestByAdmin and not cache.start() %}
+	{# Build #}
+	{% set homepage = pimcore_document(1) %}
+	{% set breadcrumbs = null %}
+	{% set navStartNode = homepage %}
+	{% if navStartNode is instanceof('\\Pimcore\\Model\\Document\\Page') %}
+		{% set breadcrumbs = pimcore_build_nav({
+			active: document,
+			root: navStartNode,
+		}) %}
+		{% set activePages = breadcrumbs.findAllBy('active', true) %}
+		{% if activePages is empty %}
+			{% set breadcrumbs = null %}
+		{% endif %}
+	{% endif %}
+
+	{# Extend #}
+	{% if breadcrumbs %}
+		{% set breadcrumbs = extend_breadcrumbs(breadcrumbs, addToBreadcrumbs) %}
+	{% endif %}
+	{# Render #}
+	{% if breadcrumbs is not null %}
+		{% do pimcore_nav_renderer('breadcrumbs').setMinDepth(0) %}
+		{{ pimcore_render_nav(breadcrumbs, 'breadcrumbs', 'renderPartial', 'snippet/breadcrumbRender.html.twig') }}
+	{% endif %}
+	{% do cache.end() %}
+{% endif %}

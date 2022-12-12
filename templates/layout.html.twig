@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+	<head>
+		<!-- META -->
+		{{ include('snippet/meta.html.twig') }}
+		{{ include('snippet/favicon.html.twig') }}
+
+		<!-- CSS -->
+		{% do pimcore_head_link().appendStylesheet('/static/css/styles' ~ (app.debug is defined and app.debug ? '.css' : '.min.css'), 'all') %}
+		{% do pimcore_head_link().appendStylesheet('/static/cookieConsent/cookieconsent.css', 'screen') %}
+
+		{% block head_stylesheets deferred %}
+			{{ pimcore_head_link() }}
+		{% endblock %}
+	</head>
+
+	<body>
+		<div id="flash-messages">
+			{% include('snippet/flashMessages.html.twig') %}
+		</div>
+
+		{% include('snippet/header.html.twig') %}
+
+		{{ block('content') }}
+
+		{% include('snippet/footer.html.twig') %}
+
+		<!-- JS -->
+		{% do pimcore_head_script().appendFile('/static/js/scripts' ~ (app.debug is defined and app.debug ? '.js' : '.min.js')) %}
+
+		{% block headscripts deferred %}
+			{{ pimcore_head_script() }}
+		{% endblock %}
+
+		{% do pimcore_inline_script().appendFile('/static/cookieConsent/cookieconsent.js') %}
+		{% do pimcore_inline_script().appendFile('/static/cookieConsent/cookieconsent-init.js') %}
+		{% do pimcore_inline_script().appendFile('/static/js/out/bootstrap.bundle.js') %}
+
+		{% block inlinescripts deferred %}
+			{{ pimcore_inline_script() }}
+		{% endblock %}
+	</body>
+</html>

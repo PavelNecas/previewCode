@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            d2957e8c-2003-477a-8ebc-52fb2556000c:
+                name: newsletter-activation
+                pattern: '#/newsletter/confirm#'
+                reverse: /newsletter/confirm/
+                controller: 'App\Controller\NewsletterController::confirmAction'
+                variables: ''
+                defaults: ''
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1666779187
+                modificationDate: 1666779448
